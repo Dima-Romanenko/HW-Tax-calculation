@@ -75,7 +75,7 @@ if (profit <= extraSmallProfit) {
 
 document.write(`
 <div class='container'>
-  <img src='./image.jpg'>
+  <img src='./img.jpg'>
   <h1>Your tax for 2020 year: <span style='color: green'>${tax.toFixed(
     2
   )}</span> </h1>
