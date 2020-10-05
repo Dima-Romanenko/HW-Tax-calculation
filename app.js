@@ -47,14 +47,20 @@ if (profit - profitWithoutTax <= 0) {
   tax =
     (extraSmallProfit / 100) * extraSmallTax +
     ((profit - extraSmallProfit) / 100) * smallTax;
-} else if (profit >= preMiddleProfit && profit < middleProfit) {
+} else if (
+  profit - profitWithoutTax >= preMiddleProfit &&
+  profit - profitWithoutTax < middleProfit
+) {
   tax =
     (extraSmallProfit / 100) * extraSmallTax +
     (smallProfit / 100) * smallTax +
     (preMiddleProfit / 100) * preMiddleTax +
     ((profit - extraSmallProfit - smallProfit - preMiddleProfit) / 100) *
       preMiddleTax;
-} else if (profit >= middleProfit && profit < hightProfit) {
+} else if (
+  profit - profitWithoutTax >= middleProfit &&
+  profit - profitWithoutTax < hightProfit
+) {
   tax =
     (extraSmallProfit / 100) * extraSmallTax +
     (smallProfit / 100) * smallTax +
@@ -67,7 +73,10 @@ if (profit - profitWithoutTax <= 0) {
       middleProfit) /
       100) *
       middleTax;
-} else if (profit >= hightProfit && profit < extraHightProfit) {
+} else if (
+  profit - profitWithoutTax >= hightProfit &&
+  profit - profitWithoutTax < extraHightProfit
+) {
   tax =
     (extraSmallProfit / 100) * extraSmallTax +
     (smallProfit / 100) * smallTax +
@@ -82,7 +91,7 @@ if (profit - profitWithoutTax <= 0) {
       hightProfit) /
       100) *
       hightTax;
-} else if (profit >= extraHightProfit) {
+} else if (profit - profitWithoutTax >= extraHightProfit) {
   tax =
     (extraSmallProfit / 100) * extraSmallTax +
     (smallProfit / 100) * smallTax +
