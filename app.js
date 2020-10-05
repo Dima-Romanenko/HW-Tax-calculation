@@ -11,15 +11,6 @@ let extraSmallProfit = 9875,
 
 let profitWithoutTax = 12400;
 
-// sum for tax
-
-let extraSmallSum = 9875,
-  smallSum = 40125,
-  preMiddleSum = 85525,
-  middleSum = 163300,
-  hightSum = 207350,
-  extraHightSum = 518400;
-// higherSum = 519000;
 
 // tax %
 
