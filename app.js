@@ -21,6 +21,24 @@ const extraSmallTax = 10,
   extraHightTax = 35,
   higherTax = 37;
 
+// difference
+
+let extraSmallDiff = (extraSmallProfit / 100) * extraSmallTax,
+  smallDiff = ((smallProfit - extraSmallProfit) / 100) * smallTax,
+  preMiddleDiff = ((preMiddleProfit - smallProfit) / 100) * preMiddleTax,
+  middleDiff = ((middleProfit - preMiddleProfit) / 100) * middleTax,
+  hightDiff = ((hightProfit - middleProfit) / 100) * hightTax,
+  extraHightDiff = ((extraHightProfit - hightProfit) / 100) * extraHightTax;
+
+console.log(
+  extraSmallDiff,
+  smallDiff,
+  preMiddleDiff,
+  middleDiff,
+  hightDiff,
+  extraHightDiff
+);
+
 let tax = 0;
 let profit = +prompt("Please, enter your profit for 2020year");
 let profitAfterDeduction = profit - profitWithoutTax;
@@ -37,79 +55,55 @@ if (profitAfterDeduction <= 0) {
   profitAfterDeduction < smallProfit
 ) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
+    extraSmallDiff +
     ((profitAfterDeduction - extraSmallProfit) / 100) * smallTax;
 } else if (
   profitAfterDeduction >= smallProfit &&
   profitAfterDeduction < preMiddleProfit
 ) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
-    (smallProfit / 100) * smallTax +
-    ((profitAfterDeduction - extraSmallProfit - smallProfit) / 100) *
-      preMiddleTax;
+    extraSmallDiff +
+    smallDiff +
+    ((profitAfterDeduction - smallProfit) / 100) * preMiddleTax;
 } else if (
   profitAfterDeduction >= preMiddleProfit &&
   profitAfterDeduction < middleProfit
 ) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
-    (smallProfit / 100) * smallTax +
-    (preMiddleProfit / 100) * preMiddleTax +
-    ((profitAfterDeduction - extraSmallProfit - smallProfit - preMiddleProfit) /
-      100) *
-      middleTax;
+    extraSmallDiff +
+    smallDiff +
+    preMiddleDiff +
+    ((profitAfterDeduction - preMiddleProfit) / 100) * middleTax;
 } else if (
   profitAfterDeduction >= middleProfit &&
   profitAfterDeduction < hightProfit
 ) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
-    (smallProfit / 100) * smallTax +
-    (preMiddleProfit / 100) * preMiddleTax +
-    (middleProfit / 100) * middleTax +
-    ((profitAfterDeduction -
-      extraSmallProfit -
-      smallProfit -
-      preMiddleProfit -
-      middleProfit) /
-      100) *
-      hightTax;
+    extraSmallDiff +
+    smallDiff +
+    preMiddleDiff +
+    middleDiff +
+    ((profitAfterDeduction - middleProfit) / 100) * hightTax;
 } else if (
   profitAfterDeduction >= hightProfit &&
   profitAfterDeduction < extraHightProfit
 ) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
-    (smallProfit / 100) * smallTax +
-    (preMiddleProfit / 100) * preMiddleTax +
-    (middleProfit / 100) * middleTax +
-    (hightProfit / 100) * hightTax +
-    ((profitAfterDeduction -
-      extraSmallProfit -
-      smallProfit -
-      preMiddleProfit -
-      middleProfit -
-      hightProfit) /
-      100) *
-      extraHightTax;
+    extraSmallDiff +
+    smallDiff +
+    preMiddleDiff +
+    middleDiff +
+    hightDiff +
+    ((profitAfterDeduction - hightProfit) / 100) * extraHightTax;
 } else if (profitAfterDeduction > extraHightProfit) {
   tax =
-    (extraSmallProfit / 100) * extraSmallTax +
-    (smallProfit / 100) * smallTax +
-    (preMiddleProfit / 100) * preMiddleTax +
-    (middleProfit / 100) * middleTax +
-    (hightProfit / 100) * hightTax +
-    (extraHightProfit / 100) * extraHightTax +
-    ((profitAfterDeduction -
-      extraSmallProfit -
-      smallProfit -
-      preMiddleProfit -
-      middleProfit -
-      hightProfit -
-      extraHightProfit) /
-      100) *
-      higherTax;
+    extraSmallDiff +
+    smallDiff +
+    preMiddleDiff +
+    middleDiff +
+    hightDiff +
+    extraHightDiff +
+    ((profitAfterDeduction - extraHightProfit) / 100) * higherTax;
 }
 
 // data output
